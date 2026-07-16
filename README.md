@@ -2,7 +2,7 @@
  
 ## Setup
  
-**Stack**: dbt Core 1.11 + DuckDB (local, no cloud accounts needed)
+
  
 ### How to reproduce
  
