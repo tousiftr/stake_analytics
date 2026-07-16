@@ -1,4 +1,4 @@
-# Stake — Analytics Engineer Case Study
+# Stake (Analytics Engineer Case Study)
 **Submitted by**: Tousif Alam
 **Date**: July 2026
 
@@ -46,7 +46,7 @@ dbt docs generate && dbt docs serve   # opens documentation site
 
 ## How I Structured the Project
 
-I followed the staging → intermediate → mart pattern that mirrors your Hevo → dbt → Lightdash pipeline.
+I followed the staging → intermediate → mart pattern that mirrors CSV → dbt → Tableau
 
 ```
 seeds/ (5 raw CSVs)
@@ -71,7 +71,6 @@ seeds/ (5 raw CSVs)
 
 
 <img width="1705" height="735" alt="Lineage" src="https://github.com/user-attachments/assets/4689b920-9858-43cb-a1f5-50c8a91ac580" />
-
 
 
 
