@@ -67,6 +67,12 @@ seeds/ (5 raw CSVs)
         └── mrt_user_portfolio_summary — one row per user, answers the business question
 ```
 
+dbt lineage
+<img width="1705" height="735" alt="Lineage" src="https://github.com/user-attachments/assets/4689b920-9858-43cb-a1f5-50c8a91ac580" />
+
+
+
+
 **Why this structure**: Each staging model is a 1:1 clean of its raw source, so downstream models never touch raw data directly. The intermediate layer isolates the three trickiest pieces of logic (share ownership, market pricing, distribution allocation) into individually testable units. The mart combines them into the final answer.
 
 ---
