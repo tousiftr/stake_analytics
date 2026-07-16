@@ -1,5 +1,5 @@
 # Stake — Analytics Engineer Case Study
-**Submitted by**: Tousif Alam (Rad)
+**Submitted by**: Tousif Alam
 **Date**: July 2026
 
 ---
@@ -67,7 +67,9 @@ seeds/ (5 raw CSVs)
         └── mrt_user_portfolio_summary — one row per user, answers the business question
 ```
 
-dbt lineage
+## dbt lineage: - 
+
+
 <img width="1705" height="735" alt="Lineage" src="https://github.com/user-attachments/assets/4689b920-9858-43cb-a1f5-50c8a91ac580" />
 
 
@@ -102,7 +104,7 @@ These are the judgment calls I made where the brief left room for interpretation
 
 4. **Portfolio value pricing**: I default to AED 500/share (original listing price). If a property has at least one completed secondary trade, I use the most recent trade's price for that property. This applies to all holders of that property, not just the parties in the trade, since the market price reflects the property's current valuation.
 
-5. **Distribution allocation (the biggest assumption)**: I allocated distributions pro-rata based on **current** share holdings, not point-in-time historical holdings. The brief says "based on shares currently held," which I read as current-state. Building a full share-ownership timeline with snapshots would give more accurate results but was out of scope for 3-4 hours. I'd flag this as the first thing to improve in production.
+5. **Distribution allocation (the biggest assumption)**: I allocated distributions pro-rata based on **current** share holdings, not point-in-time historical holdings. The brief says "based on shares currently held," which I read as current state. Building a full share-ownership timeline with snapshots would give more accurate results but was out of scope for 3-4 hours. I'd flag this as the first thing to improve in production.
 
 6. **Realized net yield**: `total_distributions_received / total_invested`. This is a simple cash-on-cash return, separate from any paper gain/loss on share value. I kept this intentionally simple because yield and capital appreciation are different lenses the business should track independently.
 
@@ -126,6 +128,11 @@ I intentionally skipped tests on columns like `country` or `email` where nulls e
 ## BI Dashboard
 
 **Tableau Public**: [View the Dashboard](https://public.tableau.com/app/profile/tousif.alam8303/viz/Stake_17841869627210/Dashboard1)
+
+Screenshot : 
+
+<img width="1864" height="737" alt="Tableau" src="https://github.com/user-attachments/assets/912f11d2-e560-4e29-b4a3-374b0e025456" />
+
 
 **Built for**: Investor Relations and Product teams.
 
