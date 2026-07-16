@@ -138,11 +138,12 @@ Mart-Data Output:
 
 ## BI Dashboard
 
-**Tableau Public**: [View the Dashboard](https://public.tableau.com/app/profile/tousif.alam8303/viz/Stake_17841869627210/Dashboard1)
+**Tableau Public**: [View the Dashboard]([[https://public.tableau.com/app/profile/tousif.alam8303/viz/Stake_17841869627210/Dashboard](https://public.tableau.com/app/profile/tousif.alam8303/viz/Stake_17841869627210/Dashboard1?publish=yes)1](https://public.tableau.com/app/profile/tousif.alam8303/viz/Stake_17841869627210/Dashboard1))
 
 Screenshot : 
 
-<img width="1864" height="737" alt="Tableau" src="https://github.com/user-attachments/assets/912f11d2-e560-4e29-b4a3-374b0e025456" />
+ <img width="1898" height="903" alt="Tableau" src="https://github.com/user-attachments/assets/d788a70e-bf9a-4a45-b577-14e177f16d90" />
+
 
 
 
