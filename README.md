@@ -8,7 +8,7 @@
  
 ```bash
 # 1. Clone and set up
-git clone https://github.com/tousiftr/-stake_analytics.git
+git clone https://github.com/tousiftr/stake_analytics.git
 cd stake_analytics
  
 # 2. Create virtual environment
@@ -108,7 +108,7 @@ Tests are placed where the data risk actually is, not blanket coverage:
 - Yield distribution across all users (most cluster between 6-10%)
 - Investment breakdown by country and KYC status
 - Scatter plot of yield vs investment size
-**Key insight**: AED 975K+ sits with users in "rejected" KYC status, representing a compliance risk the IR team should prioritize. Additionally, 3 users (U0059, U0042, U0034) show yields above 16%, driven by secondary market share purchases at favorable prices relative to their small primary investments.
+
  
 ## What I Would Do Differently in Production
  
