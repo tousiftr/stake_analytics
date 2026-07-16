@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: mrt_user_portfolio_summary
+    description: >
+      One row per user with completed investments.
+      Shows total invested amount, current estimated portfolio value,
+      total distributions received, and realized net yield as of 30 June 2024.
+      Intended audience: Investor Relations and Product teams.
+    columns:
+      - name: user_id
+        description: "Primary key. One row per investing user."
+        tests:
+          - unique
+          - not_null
+      - name: total_invested_aed
+        description: "Sum of amount_aed across completed investments up to 30 June 2024."
+        tests:
+          - not_null
+      - name: current_portfolio_value_aed
+        description: >
+          Shares held * price per share. Price defaults to AED 500 unless
+          the property has a secondary trade, in which case the most recent
+          trade price is used.
+        tests:
+          - not_null
+      - name: total_distributions_received_aed
+        description: "Sum of all rental_income and capital_gain distributions allocated pro-rata by shares held."
+      - name: realized_net_yield
+        description: "total_distributions_received / total_invested. Represents cash-on-cash return."
+      - name: unrealized_gain_loss_aed
+        description: "current_portfolio_value - total_invested. Paper gain or loss."

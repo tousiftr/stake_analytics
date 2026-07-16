@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_shares_held
+    description: >
+      Net shares held per user per property.
+      Primary market buys + secondary market buys - secondary market sells.
+      Only completed transactions are counted.
+    columns:
+      - name: user_id
+        description: "User holding the shares."
+      - name: property_id
+        description: "Property the shares belong to."
+      - name: shares_held
+        description: "Net shares currently held. Always > 0 (zero/negative holdings are filtered out)."
+        tests:
+          - not_null
+
+  - name: int_property_market_price
+    description: >
+      Most recent completed secondary trade price per property.
+      Properties without any secondary trades are not in this table;
+      the mart defaults those to AED 500/share.
+    columns:
+      - name: property_id
+        description: "Property with at least one secondary trade."
+        tests:
+          - unique
+          - not_null
+
+  - name: int_user_distributions
+    description: >
+      Total distributions allocated to each user per property,
+      based on current shares held, up to 30 June 2024.
+      Includes both rental_income and capital_gain types.
+    columns:
+      - name: user_id
+        description: "User receiving distributions."
+      - name: property_id
+        description: "Property generating the distribution."

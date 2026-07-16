@@ -1,0 +1,62 @@
+user_id,signup_date,country,kyc_status,email,referral_source
+U0001,2023-10-17,UK,verified,user1@example.com,instagram_ad
+U0002,2022-08-17,India,rejected,user2@example.com,
+U0003,2023-07-13,UK,rejected,user3@example.com,organic
+U0004,2022-04-06,Saudi Arabia,verified,user4@example.com,organic
+U0005,2023-07-29,Saudi Arabia,rejected,user5@example.com,event
+U0006,2023-03-06,Saudi Arabia,pending,user6@example.com,organic
+U0007,2024-02-17,India,rejected,user7@example.com,referral
+U0008,2022-06-09,Saudi Arabia,pending,user8@example.com,google_ads
+U0009,2022-04-10,Pakistan,pending,user9@example.com,organic
+U0010,2024-01-18,Nigeria,rejected,user10@example.com,google_ads
+U0011,0000-00-00,,pending,user11@example.com,event
+U0012,2024-06-01,Pakistan,rejected,user12@example.com,organic
+U0013,2022-02-16,Saudi Arabia,pending,user13@example.com,instagram_ad
+U0014,2024-06-06,UK,pending,user14@example.com,
+U0015,2024-05-04,Pakistan,verified,user15@example.com,instagram_ad
+U0016,2023-11-18,Egypt,rejected,user16@example.com,
+U0017,2022-03-15,India,rejected,user17@example.com,instagram_ad
+U0018,2023-04-19,USA,pending,user18@example.com,
+U0019,2023-12-06,,verified,user19@example.com,organic
+U0020,2022-08-23,UAE,pending,user20@example.com,organic
+U0021,2022-08-05,Pakistan,verified,user21@example.com,google_ads
+U0022,2023-10-21,Nigeria,verified,user22@example.com,instagram_ad
+U0023,2024-02-02,,rejected,user23@example.com,event
+U0024,2023-03-15,USA,pending,user24@example.com,instagram_ad
+U0025,2023-06-06,Nigeria,verified,user25@example.com,organic
+U0026,2022-06-06,India,rejected,user26@example.com,organic
+U0027,2023-01-30,USA,rejected,user27@example.com,event
+U0028,2022-09-15,,verified,user28@example.com,organic
+U0029,2023-11-30,,pending,user29@example.com,referral
+U0030,2022-04-25,Egypt,pending,user30@example.com,organic
+U0031,2024-01-10,Egypt,rejected,user31@example.com,event
+U0032,2022-04-19,Egypt,rejected,user32@example.com,instagram_ad
+U0033,2022-06-06,Pakistan,verified,user33@example.com,event
+U0034,2022-01-01,Pakistan,pending,,referral
+U0035,2024-06-18,Egypt,verified,user35@example.com,event
+U0036,2022-03-22,UK,rejected,user36@example.com,organic
+U0037,2024-02-18,,verified,user37@example.com,google_ads
+U0038,2023-07-17,India,pending,user38@example.com,event
+U0039,2023-03-10,Saudi Arabia,rejected,user39@example.com,
+U0040,2022-07-25,Egypt,pending,user40@example.com,
+U0041,2023-01-18,Nigeria,rejected,user41@example.com,instagram_ad
+U0042,2022-08-19,UK,pending,,event
+U0043,2022-08-24,Saudi Arabia,verified,user43@example.com,
+U0044,2022-03-02,Saudi Arabia,verified,user44@example.com,referral
+U0045,2022-03-14,,verified,user45@example.com,google_ads
+U0046,2022-08-08,,verified,user46@example.com,event
+U0047,2023-08-14,Nigeria,verified,user47@example.com,google_ads
+U0048,2022-07-14,UK,verified,user48@example.com,referral
+U0049,2023-03-10,USA,pending,user49@example.com,organic
+U0050,2023-11-21,UK,verified,user50@example.com,referral
+U0051,2024-03-30,UK,verified,user51@example.com,event
+U0052,2023-04-05,India,pending,user52@example.com,google_ads
+U0053,2022-09-13,UK,pending,user53@example.com,event
+U0054,2022-04-11,UAE,rejected,user54@example.com,organic
+U0055,2022-04-06,Saudi Arabia,verified,user55@example.com,google_ads
+U0056,2022-08-07,USA,verified,user56@example.com,organic
+U0057,2023-02-04,Egypt,pending,user57@example.com,
+U0058,2024-01-19,,rejected,user58@example.com,instagram_ad
+U0059,2022-07-14,Egypt,verified,user59@example.com,event
+U0060,2024-01-24,,verified,user60@example.com,organic
+U0006,2023-03-06,Saudi Arabia,pending,user6@example.com,organic

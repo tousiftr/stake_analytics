@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Deduplicated users with cleaned types."
+    columns:
+      - name: user_id
+        description: "Primary key for users."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_properties
+    description: "Properties with backfilled total_shares where null."
+    columns:
+      - name: property_id
+        description: "Primary key for properties."
+        tests:
+          - unique
+          - not_null
+      - name: total_shares
+        description: "Number of investable shares. Backfilled from total_value / price_per_share where originally null."
+        tests:
+          - not_null
+
+  - name: stg_investments
+    description: "Deduplicated investments with cleaned types."
+    columns:
+      - name: investment_id
+        description: "Primary key for investments."
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "Foreign key to stg_users. One orphan exists in raw data."
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+              config:
+                severity: warn
+      - name: property_id
+        description: "Foreign key to stg_properties. One orphan exists in raw data."
+        tests:
+          - relationships:
+              to: ref('stg_properties')
+              field: property_id
+              config:
+                severity: warn
+      - name: status
+        description: "Only 'completed' investments represent real money in."
+        tests:
+          - accepted_values:
+              values: ['completed', 'cancelled', 'pending', 'refunded']
+
+  - name: stg_distributions
+    description: "Distributions with cleaned date types."
+    columns:
+      - name: distribution_id
+        description: "Primary key for distributions."
+        tests:
+          - unique
+          - not_null
+      - name: distribution_type
+        description: "rental_income (recurring) or capital_gain (one-off). Both count for yield."
+        tests:
+          - accepted_values:
+              values: ['rental_income', 'capital_gain']
+
+  - name: stg_secondary_trades
+    description: "Secondary market trades between users."
+    columns:
+      - name: trade_id
+        description: "Primary key for trades."
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: "Only 'completed' trades move shares."
+        tests:
+          - accepted_values:
+              values: ['completed', 'cancelled']

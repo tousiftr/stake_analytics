@@ -1,0 +1,19 @@
+property_id,property_name,area,property_type,total_value_aed,price_per_share_aed,total_shares,listing_date,expected_annual_yield_pct,status
+P001,JLT Residence 1,JLT,Apartment,500000,500,1000.0,2023-10-20,7.41,active
+P002,JVC Residence 2,JVC,Townhouse,2000000,500,4000.0,2022-05-22,8.91,active
+P003,Dubai South Residence 3,Dubai South,Apartment,3000000,500,6000.0,2022-10-27,7.12,delisted
+P004,Dubai Hills Estate Residence 4,Dubai Hills Estate,Townhouse,2000000,500,,2022-04-10,7.98,delisted
+P005,Palm Jumeirah Residence 5,Palm Jumeirah,Apartment,2000000,500,4000.0,2023-08-18,6.77,active
+P006,Palm Jumeirah Residence 6,Palm Jumeirah,Villa,750000,500,1500.0,2022-11-27,7.08,active
+P007,Dubai South Residence 7,Dubai South,Apartment,500000,500,1000.0,2022-03-10,7.33,active
+P008,Business Bay Residence 8,Business Bay,Villa,2000000,500,4000.0,2015-01-01,7.52,active
+P009,Arjan Residence 9,Arjan,Townhouse,750000,500,1500.0,2023-03-14,6.64,active
+P010,JLT Residence 10,JLT,Villa,2000000,500,4000.0,2023-12-30,7.62,active
+P011,JVC Residence 11,JVC,Townhouse,750000,500,1500.0,2022-11-26,5.96,delisted
+P012,Downtown Dubai Residence 12,Downtown Dubai,Townhouse,750000,500,1500.0,2022-12-04,6.63,active
+P013,Palm Jumeirah Residence 13,Palm Jumeirah,Townhouse,750000,500,1500.0,2024-02-02,8.04,sold_out
+P014,Dubai Hills Estate Residence 14,Dubai Hills Estate,Villa,1000000,500,2000.0,2022-04-22,5.87,active
+P015,Palm Jumeirah Residence 15,Palm Jumeirah,Apartment,500000,500,1000.0,2023-02-05,8.58,sold_out
+P016,Dubai Marina Residence 16,Dubai Marina,Apartment,2000000,500,4000.0,2024-02-21,7.21,active
+P017,Al Furjan Residence 17,Al Furjan,Townhouse,3000000,500,6000.0,2022-07-31,7.68,delisted
+P018,Palm Jumeirah Residence 18,Palm Jumeirah,Villa,750000,500,1500.0,2023-05-15,6.01,active

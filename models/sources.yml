@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: stake_raw
+    schema: main
+    description: "Raw seed data from Stake's fractional real estate platform"
+    tables:
+      - name: raw_users
+        description: "One row per user. Contains signup info, KYC status, and referral source."
+      - name: raw_properties
+        description: "One row per property. Contains listing details, share structure, and status."
+      - name: raw_investments
+        description: "One row per primary-market investment. Status determines if money actually moved."
+      - name: raw_distributions
+        description: "One row per property per payout period. Includes rental income and capital gains."
+      - name: raw_secondary_trades
+        description: "One row per user-to-user share trade on the secondary market."
