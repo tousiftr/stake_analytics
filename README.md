@@ -104,12 +104,16 @@ These are the judgment calls I made where the brief left room for interpretation
 
 4. **Portfolio value pricing**: I default to AED 500/share (original listing price). If a property has at least one completed secondary trade, I use the most recent trade's price for that property. This applies to all holders of that property, not just the parties in the trade, since the market price reflects the property's current valuation.
 
-5. **Distribution allocation (the biggest assumption)**: I allocated distributions pro-rata based on **current** share holdings, not point-in-time historical holdings. The brief says "based on shares currently held," which I read as current state. Building a full share-ownership timeline with snapshots would give more accurate results but was out of scope for 3-4 hours. I'd flag this as the first thing to improve in production.
+5. **Realized net yield**: `total_distributions_received / total_invested`. This is a simple cash-on-cash return, separate from any paper gain/loss on share value. I kept this intentionally simple because yield and capital appreciation are different lenses the business should track independently.
 
-6. **Realized net yield**: `total_distributions_received / total_invested`. This is a simple cash-on-cash return, separate from any paper gain/loss on share value. I kept this intentionally simple because yield and capital appreciation are different lenses the business should track independently.
+6. **Zero holdings excluded**: If a user sold all shares in a property via the secondary market, that property drops out of their portfolio. Users who sold everything across all properties don't appear in the mart.
 
-7. **Zero holdings excluded**: If a user sold all shares in a property via the secondary market, that property drops out of their portfolio. Users who sold everything across all properties don't appear in the mart.
-
+7. **Investor tier segmentation**: I created tiers to help the IR team prioritize outreach by portfolio size:
+   - **Whale (100K+)**: 10 users, AED 1.32M invested. Highest priority for relationship management.
+   - **Core (50-100K)**: 26 users, AED 1.65M invested. The platform's backbone.
+   - **Mid (20-50K)**: 14 users, AED 425K invested. Growth potential with the right engagement.
+   - **Small (<20K)**: 10 users, AED 105K invested. Early-stage or testing users.
+   These tiers are not in the dbt mart itself. They are calculated fields in Tableau, keeping the mart clean and letting the BI layer handle presentation logic.
 ---
 
 ## How I Approached Testing
@@ -134,14 +138,15 @@ Screenshot :
 <img width="1864" height="737" alt="Tableau" src="https://github.com/user-attachments/assets/912f11d2-e560-4e29-b4a3-374b0e025456" />
 
 
-**Built for**: Investor Relations and Product teams.
 
 **What it answers**:
+
 - How much has been invested across the platform, and what is it worth today?
 - Which users have the highest portfolio value and yield?
 - How are yields distributed, are most users in a healthy range?
 - Where is the KYC compliance risk?
 
+**
 **Key insights from the data**:
 - **60 users** have completed investments totaling **AED 3.5M**, with a current portfolio value of **AED 3.6M** (net gain of AED 125K).
 - Most users cluster between **6-10% realized yield**, which is healthy for a fractional real estate platform.
@@ -156,8 +161,11 @@ Screenshot :
 
 2. **Secondary market pricing**: Instead of only the most recent trade, use a volume-weighted average price (VWAP) across recent trades for a more stable and defensible valuation.
 
-3. **Incremental materialization**: At scale, the mart should be built incrementally rather than full-refresh, especially as the investments and trades tables grow.
+3. **Incremental materialisation **: At scale, the mart should be built incrementally rather than full-refresh, especially as the investments and trades tables grow.
 
 4. **Data quality monitoring**: Add a framework like dbt-expectations or Elementary for anomaly detection on incoming raw data, catching issues before they reach the mart.
 
-5. **Lightdash integration**: Since the team uses Lightdash, I'd connect the DuckDB warehouse (or MotherDuck for cloud access) directly and define metrics in the .yml files so Lightdash picks them up natively.
+5. **Separate marts for different audiences**: Rather than pushing calculation logic into Tableau, I would create dedicated marts:
+   - `mrt_user_portfolio_summary` — the current user-level detail mart (already built).
+   - `mrt_platform_summary` — a single-row aggregated mart with platform-wide KPIs (total invested, total portfolio value, avg yield, total distributions, total users). This removes the need for Tableau to compute SUMs and AVGs at query time.
+   - `mrt_user_segments` — a mart with pre-calculated investor tiers, yield performance buckets, gain/loss status, and KYC risk flags. This keeps segmentation logic in dbt where it's version-controlled, tested, and consistent across all BI tools, instead of scattered across Tableau calculated fields that are harder to audit.
